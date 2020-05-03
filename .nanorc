@@ -1,0 +1,125 @@
+
+#-- Syntax highlighting --#
+
+## Nanorc files
+include "/usr/share/nano/nanorc.nanorc"
+
+## C/C++
+include "/usr/share/nano/c.nanorc"
+
+## HTML
+include "/usr/share/nano/html.nanorc"
+
+## TeX
+include "/usr/share/nano/tex.nanorc"
+
+## Quoted emails (under e.g. mutt)
+include "/usr/share/nano/mutt.nanorc"
+
+## Patch files
+include "/usr/share/nano/patch.nanorc"
+
+## Manpages
+include "/usr/share/nano/man.nanorc"
+
+## Groff
+include "/usr/share/nano/groff.nanorc"
+
+## Perl
+include "/usr/share/nano/perl.nanorc"
+
+## Python
+include "/usr/share/nano/python.nanorc"
+
+## Ruby
+include "/usr/share/nano/ruby.nanorc"
+
+## Java
+include "/usr/share/nano/java.nanorc"
+
+## Assembler
+include "/usr/share/nano/asm.nanorc"
+
+## Bourne shell scripts
+include "/usr/share/nano/sh.nanorc"
+
+
+#-- Syntax Highlighting in xorg.conf --#
+
+syntax "xorg" "xorg\.conf$"
+color brightwhite "(Section|EndSection|Sub[sS]ection|EndSub[sS]ection)"
+# keywords
+color yellow "[^A-Za-z0-9](Identifier|Screen|InputDevice|Option|RightOf|LeftOf|Driver|RgbPath|FontPath|ModulePath|Load|VendorName|ModelName|BoardName|BusID|Device|Monitor|DefaultDepth|View[pP]ort|Depth|Virtual|Modes|Mode|DefaultColorDepth|Modeline|\+vsync|\+hsync|HorizSync|VertRefresh)[^A-Za-z0-9]"
+# numbers
+color magenta "[0-9]"
+# strings
+color green ""(\\.|[^\"])*""
+# comments
+color blue "#.*"
+
+#-- Syntax Highligting for XML files --#
+syntax "ml" ".*\.([jrs]?html?|xml|sgml?)$"
+color white "^.+$"
+color green  start="<" end=">"
+color cyan   "<[^> ]+"
+color cyan   ">"
+color yellow start="<!DOCTYPE" end="[/]?>"
+color yellow start="<!--" end="-->"
+color red    "&[^;]*;"
+
+#-- Syntax Highlighting for HTTP codes --#
+syntax "urls"
+color brightmagenta   "^.*$"
+color cyan      "^(1[0-9][0-9]|20[256]|30[45]).*$"
+color green      "^20[03].*$"
+color brightyellow   "^(201|30[0-37]).*$"
+color brightred      "^(204|[45][0-9][0-9]|666).*$"
+
+#-- Syntax Highlighting for CSS files --#
+syntax "css" "\.css$"
+color brightred     "."
+color brightyellow  start="\{" end="\}"
+color brightwhite           start=":" end="[;^\{]"
+color brightblue    ":active|:focus|:hover|:link|:visited|:link|:after|:before|$"
+color brightblue    start="\/\*" end="\\*/"
+color green         ";|:|\{|\}"
+
+#-- Syntax Highlighting for .conf files --#
+syntax "Conf" "\.c[o]?nf$"
+## Strings
+icolor magenta ""(\\.|[^"])*""
+## Comments
+icolor blue "^[[:space:]]*#.*$"
+icolor cyan "^[[:space:]]*##.*$"
+
+
+#-- Nano Appearance --#
+
+## Sets the line number color [fg,bg]
+## Only one value represents line number color
+set numbercolor cyan
+
+
+#-- Nano Behavioral Settings --#
+
+## Visually wraps the text at the edge of the window
+set softwrap
+
+## Display line numbers to the left of the text
+set linenumbers
+
+## Sets the tabsize as amount of spaces
+set tabsize 4
+
+## Enable / disable smooth scrolling
+set smooth
+
+## Enable / disable mouse on Nano
+set mouse
+
+## Back up files to the current filename plus a tilde
+set backup
+
+## The directory to put unique backup files in
+set backupdir "~/Nano-Backups"
+
