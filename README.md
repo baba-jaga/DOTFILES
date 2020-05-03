@@ -1,2 +1,3 @@
 # DOTFILES
-Arch dotfiles
+
+Contains Arch Linux dotfiles for various applications.
